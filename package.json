@@ -1,0 +1,26 @@
+{
+  "name": "wepy-trycatch",
+  "version": "0.1.0",
+  "description": "a wepy lib for catch runtime error power by decorator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duxianzhang/wepy-trycatch.git"
+  },
+  "keywords": [
+    "wepy",
+    "trycatch",
+    "try",
+    "catch",
+    "error"
+  ],
+  "author": "duxianzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duxianzhang/wepy-trycatch/issues"
+  },
+  "homepage": "https://github.com/duxianzhang/wepy-trycatch#readme"
+}

@@ -1,0 +1,32 @@
+<template>
+  <view class="container" @tap='touch'>
+    test
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import trycatch from 'wepy-trycatch'
+
+  // error handler: Function(错误处理函数)
+  const errHandler = console.log
+
+  @trycatch(errHandler)
+  export default class Test extends wepy.page {
+    config = {
+      navigationBarTitleText: 'test page'
+    }
+    methods = {
+      touch() {
+        console.log('methods a');
+        throw 'methods is errored!!!'
+      }
+    }
+    async onLoad() {
+      this.loadingFinish()
+      throw 'onLoad is errored!!!'
+    }
+  }
+</script>
+<style lang="less">
+</style>
