@@ -1,6 +1,9 @@
 # wepy-trycatch
 a wepy lib for catch runtime error power by decorator
-优雅捕获wepy全局异常
+🔥优雅捕获wepy全局异常
+
+## 特点
+- 告别`代码裸奔` or `手动try catch` 💥
 
 ## 使用方式
 > app.wpy
@@ -61,6 +64,9 @@ a wepy lib for catch runtime error power by decorator
     
     // 自定义回调
     specialCb() {}
+    
+    // 未定义wepy.$error时，可在onErrored中取到错误信息并自行处理
+    onErrored(error) {}
   }
   </script>
 ```
