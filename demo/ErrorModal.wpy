@@ -1,0 +1,44 @@
+<style lang="less">
+</style>
+<template>
+  <view class="error-modal" wx:if='{{errInfo.show}}'>
+    <view class='modal'>
+      <view class='rest'>
+        <!-- 完成全部任务 -->
+        <view wx:if="{{errInfo.show}}">
+          <image class='winner' src=''></image>
+          <view class='desc'>{{errInfo.msg}}</view>
+          <button @tap='close'>{{errInfo.btnMsg}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class ErrorModal extends wepy.component {
+    data = {
+      errInfo: {
+        msg: '报错了，失去联系.',
+        btnMsg: '重新登录',
+        show: false
+      }
+    }
+
+    methods = {
+      show(errInfo) {
+        this.errInfo = {...errInfo, show: true}
+      },
+      close() {
+        let errInfo = this.errInfo
+        this.errInfo = {...errInfo, show: false}
+        if ( errInfo.callback && 
+          typeof this.$parent[errInfo.callback] === 'function'
+        ) {
+          // 执行父组件的’重新加载‘事件
+          this.$parent[errInfo.callback]()
+        }
+      }
+    }
+  }
+</script>

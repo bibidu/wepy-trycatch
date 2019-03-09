@@ -1,6 +1,6 @@
 {
   "name": "wepy-trycatch",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "a wepy lib for catch runtime error power by decorator",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duxianzhang/wepy-trycatch.git"
+    "url": "https://github.com/duxianzhang/wepy-trycatch.git"
   },
   "keywords": [
     "wepy",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/duxianzhang/wepy-trycatch/issues"
   },
-  "homepage": "https://github.com/duxianzhang/wepy-trycatch#readme"
+  "homepage": "https://github.com/duxianzhang/wepy-trycatch#readme",
+  "dependencies": {
+    "wepy": "^1.7.2"
+  }
 }

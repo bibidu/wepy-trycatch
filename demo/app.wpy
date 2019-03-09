@@ -1,0 +1,25 @@
+<script>
+  import wepy from 'wepy'
+  export default class extends wepy.app {
+    constructor() {
+      super()
+      // wepy-trycatch将在报错时调用’ErrorModal‘组件
+      wepy.$error = {
+        compsName: 'ErrorModal',
+        methodName: 'show',
+        options: {
+          btnMsg: '$error按钮',
+          msg: '$error错误提示文案',
+          callback: 'errHandler'
+        }
+        // 适用场景：将报错信息转成code
+        hook: (error, options) => {
+          if (error.includes('Yu')) {
+            return {...options, msg: '我需要矫正一下你12'}
+          }
+          return options
+        } 
+      }
+    }
+  }
+</script>

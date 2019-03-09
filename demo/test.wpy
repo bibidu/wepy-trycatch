@@ -1,5 +1,5 @@
 <template>
-  <view class="container" @tap='touch'>
+  <view class="container">
     test
   </view>
 </template>
@@ -8,23 +8,26 @@
   import wepy from 'wepy'
   import trycatch from 'wepy-trycatch'
 
-  // error handler: Function(错误处理函数)
-  const errHandler = console.log
-
-  @trycatch(errHandler)
+// 当前页的错误弹窗-按钮文案-提示文案-点击按钮后的事件名
+  @trycatch({
+    options: {
+      btnMsg: 'dd',
+      msg: 'gogo',
+      callback: 'errHandler'
+    }
+  })
   export default class Test extends wepy.page {
     config = {
-      navigationBarTitleText: 'test page'
+      navigationBarTitleText: 'xxx'
     }
-    methods = {
-      touch() {
-        console.log('methods a');
-        throw 'methods is errored!!!'
-      }
-    }
+
     async onLoad() {
-      this.loadingFinish()
-      throw 'onLoad is errored!!!'
+      throw new SyntaxError('onLoad 错误!')
+    }
+    // 点击模态框按钮后：
+    // eg. 数据还原，重新渲染页面
+    errHandler(error) {
+      console.log('errHandler');
     }
   }
 </script>
