@@ -9,7 +9,7 @@ function trycatch(initialOptions) {
     function wrapper(method) {
       return async (...args) => {
         try {
-          await method.apply(this, ...args)
+          await method.call(this, ...args)
         } catch (error) {
           notifyErrorMsg.call(this, error, initialOptions)
         }
@@ -24,7 +24,7 @@ function trycatch(initialOptions) {
       const $error = merge(initialOptions)
       let { compsName, methodName, options, flag, hook } = $error 
       if (hook && typeof hook === 'function') {
-        options = hook(error.toString(), options)
+        options = hook(JSON.stringify(error), options)
       }
       if (!flag) {
         this.onErrored && this.onErrored.call(this, options)
